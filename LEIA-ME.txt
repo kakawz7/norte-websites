@@ -1,0 +1,35 @@
+NORTE WEBSITES — VERSÃO FINAL
+
+Incluído nesta versão:
+- identidade Norte Websites no topo e rodapé;
+- ícone de marca no rodapé + favicon;
+- Instagram @nortewebsites;
+- seção de projetos com Forja Men's Studio e Paulista Auto Center;
+- seletor moderno de planos;
+- formulário conectado ao Supabase;
+- consentimento de uso dos dados;
+- validação de nome, WhatsApp e descrição;
+- honeypot contra bots simples;
+- bloqueio local de envios repetidos por 15 segundos;
+- Content Security Policy restringindo scripts/conexões;
+- imagens WebP para carregar mais rápido;
+- FAQ;
+- melhorias mobile e redução de efeitos pesados em telas pequenas.
+
+IMPORTANTE SOBRE SEGURANÇA
+A Publishable Key do Supabase pode ficar no navegador.
+NUNCA coloque Secret Key, service_role ou senha do banco no HTML/JS.
+
+No Supabase, mantenha:
+- RLS ATIVADO na tabela pedidos;
+- apenas uma policy de INSERT para anon;
+- SEM policy pública de SELECT, UPDATE ou DELETE.
+
+O bloqueio de 15 segundos e o honeypot ajudam contra spam simples, mas não substituem proteção real no servidor.
+Se começar a receber spam, o próximo upgrade indicado é Cloudflare Turnstile ou uma função server-side com rate limit.
+
+TESTE
+1. Extraia o ZIP.
+2. Abra index.html.
+3. Envie um pedido de teste.
+4. Vá em Supabase > Table Editor > pedidos e atualize a tabela.
