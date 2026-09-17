@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Norte Studio — Sites & Experiências Digitais</title>
+<meta name="description" content="Portfólio minimalista de criação de sites modernos para negócios." />
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Manrope:wght@400;500;600;700&display=swap');
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}body{font-family:'DM Sans',sans-serif;background:#f3f2ee;color:#111;overflow-x:hidden}a{color:inherit;text-decoration:none}.noise{position:fixed;inset:0;pointer-events:none;z-index:100;opacity:.035;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.7'/%3E%3C/svg%3E")}nav{position:fixed;top:0;left:0;width:100%;padding:24px 4vw;display:flex;align-items:center;justify-content:space-between;z-index:50;mix-blend-mode:difference;color:white}.brand{font:600 18px 'Manrope';letter-spacing:-.04em}.navlinks{display:flex;gap:28px;font-size:13px}.pill{border:1px solid currentColor;border-radius:999px;padding:10px 16px}.hero{min-height:100vh;padding:130px 4vw 45px;display:flex;flex-direction:column;justify-content:space-between;position:relative;isolation:isolate;overflow:hidden}.hero:before,.hero:after{content:'';position:absolute;z-index:-1;pointer-events:none;background-size:cover;background-position:center;filter:grayscale(1);opacity:.11}.hero:before{width:min(48vw,720px);height:min(68vw,760px);right:-6vw;top:5vh;background-image:url('assets/images/background-01.jpg');transform:rotate(4deg);border-radius:3px}.hero:after{width:min(30vw,430px);height:min(24vw,320px);left:32vw;bottom:2vh;background-image:url('assets/images/background-02.jpg');transform:rotate(-5deg);border-radius:3px}.eyebrow{font-size:13px;text-transform:uppercase;letter-spacing:.13em;display:flex;align-items:center;gap:10px}.dot{width:8px;height:8px;background:#111;border-radius:50%;animation:blink 1.5s infinite}@keyframes blink{50%{opacity:.2}}h1{font:500 clamp(62px,11.5vw,176px)/.82 'Manrope';letter-spacing:-.075em;max-width:1500px}.hero-bottom{display:flex;justify-content:space-between;align-items:end;gap:30px}.hero-copy{max-width:410px;font-size:16px;line-height:1.5}.scroll{font-size:12px;text-transform:uppercase;letter-spacing:.12em}.marquee{background:#111;color:#eee;overflow:hidden;padding:17px 0}.track{width:max-content;display:flex;gap:45px;animation:marquee 18s linear infinite;text-transform:uppercase;font-size:13px;letter-spacing:.12em}@keyframes marquee{to{transform:translateX(-50%)}}section{padding:120px 4vw;position:relative}#work:before{content:'';position:absolute;width:340px;height:460px;right:-90px;top:40px;background:url('assets/images/background-03.jpg') center/cover;opacity:.055;filter:grayscale(1);transform:rotate(7deg);pointer-events:none}#about:before{content:'';position:absolute;width:300px;height:390px;left:-100px;bottom:40px;background:url('assets/images/background-04.jpg') center/cover;opacity:.06;filter:grayscale(1);transform:rotate(-6deg);pointer-events:none}.section-head{display:flex;justify-content:space-between;align-items:end;border-bottom:1px solid #c8c6c0;padding-bottom:20px;margin-bottom:50px}.section-head h2{font:500 clamp(42px,7vw,100px)/.9 'Manrope';letter-spacing:-.065em}.section-head small{font-size:12px;text-transform:uppercase;letter-spacing:.12em}.projects{display:grid;grid-template-columns:1fr 1fr;gap:16px}.project{position:relative;aspect-ratio:1.35;border-radius:3px;overflow:hidden;background:#ddd;cursor:pointer}.project:nth-child(3){grid-column:1/-1;aspect-ratio:2.2}.visual{position:absolute;inset:0;transition:transform .8s cubic-bezier(.2,.8,.2,1)}.project:hover .visual{transform:scale(1.035)}.v1,.v2,.v3{background:#ddd;position:absolute;inset:0;overflow:hidden}
+.site-shot{position:absolute;inset:0;padding:26px;background:#eee;transition:transform .8s cubic-bezier(.2,.8,.2,1)}
+.site-shot .mini-nav{display:flex;justify-content:space-between;align-items:center;font:600 11px 'Manrope';text-transform:uppercase;letter-spacing:.08em}
+.site-shot .mini-links{display:flex;gap:12px;font-size:9px;font-weight:500}
+.site-shot .mini-hero{height:calc(100% - 25px);display:flex;flex-direction:column;justify-content:center}
+.site-shot h4{font:500 clamp(30px,5vw,72px)/.88 'Manrope';letter-spacing:-.07em}
+.site-shot p{font-size:10px;max-width:210px;margin-top:12px;line-height:1.4}
+.site-shot .mini-btn{display:inline-block;margin-top:15px;border:1px solid currentColor;border-radius:999px;padding:7px 11px;font-size:9px;width:max-content}
+.v1 .site-shot{background:#ded9cf;color:#1d1c1a}
+.v1 .site-shot:after{content:'';position:absolute;width:34%;height:70%;right:7%;top:17%;background:linear-gradient(150deg,#776f64,#c8b8a2);border-radius:100px 100px 8px 8px;opacity:.9}
+.v2 .site-shot{background:#17201b;color:#e8eee5}
+.v2 .site-shot h4{max-width:70%}
+.v2 .site-shot:after{content:'';position:absolute;width:38%;height:55%;right:5%;bottom:8%;background:linear-gradient(145deg,#8da08c,#394a3e);clip-path:polygon(0 25%,100% 0,85% 100%,10% 85%)}
+.v3 .site-shot{background:#e8e3da;color:#161616;padding:38px}
+.v3 .site-shot h4{font-size:clamp(38px,7vw,105px);max-width:70%}
+.v3 .site-shot:after{content:'N';position:absolute;right:6%;top:10%;font:500 clamp(100px,20vw,300px)/1 'Manrope';letter-spacing:-.1em;opacity:.09}
+.project-info{position:absolute;left:22px;right:22px;bottom:20px;display:flex;justify-content:space-between;align-items:end;font-size:13px;z-index:2}.project-info span{background:#f3f2ee;border-radius:999px;padding:8px 12px}.about{display:grid;grid-template-columns:.8fr 1.5fr;gap:9vw}.about-label{text-transform:uppercase;font-size:12px;letter-spacing:.12em}.about p{font:400 clamp(30px,4.2vw,64px)/1.05 'Manrope';letter-spacing:-.05em}.services{margin-top:80px;border-top:1px solid #c8c6c0}.service{display:grid;grid-template-columns:60px 1fr auto;align-items:center;border-bottom:1px solid #c8c6c0;padding:26px 0}.service h3{font:500 clamp(24px,3vw,44px) 'Manrope';letter-spacing:-.04em}.service p{font-size:13px;color:#666}.process{margin-top:85px;display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid #c8c6c0;border-bottom:1px solid #c8c6c0}.process>div{padding:34px 28px 42px 0}.process>div+div{border-left:1px solid #c8c6c0;padding-left:28px}.process span{font-size:12px}.process h3{font:500 clamp(22px,2.5vw,36px)/1 'Manrope';letter-spacing:-.04em;margin:38px 0 14px}.process p{font-size:13px;color:#666;line-height:1.55;max-width:290px}
+.pricing{background:#e8e6e0}.pricing-intro{max-width:650px;font-size:15px;line-height:1.6;color:#555;margin:-20px 0 45px}.plans{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.plan{min-height:430px;border:1px solid #c5c2bb;border-radius:4px;padding:28px;display:flex;flex-direction:column;position:relative;background:rgba(243,242,238,.55)}.plan.featured{background:#111;color:#eee;border-color:#111}.plan-top{display:flex;justify-content:space-between;align-items:start}.plan-tag{font-size:11px;text-transform:uppercase;letter-spacing:.1em}.plan h3{font:500 clamp(30px,3.4vw,50px)/1 'Manrope';letter-spacing:-.055em;margin:42px 0 8px}.price{font:500 27px 'Manrope';letter-spacing:-.04em}.price small{font:400 12px 'DM Sans';color:#777}.featured .price small{color:#aaa}.plan ul{list-style:none;margin:28px 0 35px;display:grid;gap:11px;font-size:13px;color:#5e5e5e}.featured ul{color:#c9c9c9}.plan ul li:before{content:'↳';margin-right:8px}.plan .plan-btn{margin-top:auto;border:1px solid currentColor;border-radius:999px;padding:12px 15px;text-align:center;font-size:13px}
+.cta{min-height:90vh;background:#111;color:#eee;display:flex;flex-direction:column;justify-content:space-between;padding:80px 4vw 35px}.cta small{text-transform:uppercase;letter-spacing:.12em}.cta h2{font:500 clamp(64px,12vw,180px)/.8 'Manrope';letter-spacing:-.08em;max-width:1300px}.cta-row{display:flex;justify-content:space-between;align-items:end;border-top:1px solid #333;padding-top:25px}.cta a{font-size:15px}.reveal{opacity:0;transform:translateY(45px);transition:opacity .9s,transform .9s cubic-bezier(.2,.8,.2,1)}.reveal.on{opacity:1;transform:none}@media(max-width:760px){.hero:before{width:78vw;height:55vh;right:-32vw;top:18vh;opacity:.09}.hero:after{width:52vw;height:25vh;left:-15vw;bottom:3vh;opacity:.07}#work:before,#about:before{opacity:.035}nav{padding:20px}.navlinks a:not(.pill){display:none}.hero{padding:115px 20px 30px;min-height:92vh}.hero-bottom{align-items:start;flex-direction:column}.scroll{display:none}section{padding:85px 20px}.section-head{align-items:start;flex-direction:column;gap:15px}.projects{grid-template-columns:1fr}.project,.project:nth-child(3){grid-column:auto;aspect-ratio:1.15}.about{grid-template-columns:1fr;gap:30px}.service{grid-template-columns:40px 1fr}.service p{display:none}.process{grid-template-columns:1fr}.process>div{padding:28px 0}.process>div+div{border-left:0;border-top:1px solid #c8c6c0;padding-left:0}.plans{grid-template-columns:1fr}.plan{min-height:390px}.cta{padding:70px 20px 28px}.cta-row{flex-direction:column;align-items:start;gap:18px}}
+
+/* V4 — contraste editorial */
+#about{
+  background:#111;
+  color:#f1f0ec;
+  position:relative;
+  overflow:hidden;
+}
+#about .about-label,
+#about .process span,
+#about .process p{color:#aaa}
+#about .process{
+  border-top-color:#363636;
+  border-bottom-color:#363636;
+}
+#about .process>div+div{border-left-color:#363636}
+#about b{color:#fff}
+
+.pricing{
+  background:#dedcd5;
+  color:#111;
+}
+.pricing .section-head{border-bottom-color:#aaa79f}
+
+.cta{
+  background:#111;
+  color:#f1f0ec;
+}
+.cta .contact-line,
+.cta footer{border-color:#383838}
+.cta .contact-line small,
+.cta footer{color:#aaa}
+.cta a{color:#f1f0ec}
+
+@media(max-width:700px){
+  #about .process>div+div{
+    border-left:0;
+    border-top-color:#363636;
+  }
+}
+
+
+/* V5 — imagens editoriais de fundo visíveis */
+body{overflow-x:hidden}
+.hero,#about,.pricing{position:relative;isolation:isolate;overflow:hidden}
+.hero>* ,#about>* ,.pricing>*{position:relative;z-index:2}
+
+.hero::after{
+ content:"";position:absolute;z-index:0;
+ width:min(42vw,610px);height:72%;
+ right:-7vw;top:16%;
+ background:url("assets/images/background-01.jpg") center/cover no-repeat;
+ opacity:.24;filter:grayscale(1) contrast(1.08);
+ transform:rotate(4deg);
+ border-radius:2px;
+}
+#about::after{
+ content:"";position:absolute;z-index:0;
+ width:min(36vw,520px);height:64%;
+ left:-8vw;bottom:-10%;
+ background:url("assets/images/background-03.jpg") center/cover no-repeat;
+ opacity:.17;filter:grayscale(1) brightness(.75);
+ transform:rotate(-6deg);
+}
+.pricing::after{
+ content:"";position:absolute;z-index:0;
+ width:min(30vw,430px);height:58%;
+ right:-5vw;top:12%;
+ background:url("assets/images/background-04.jpg") center/cover no-repeat;
+ opacity:.18;filter:grayscale(1);
+ transform:rotate(5deg);
+}
+@media(max-width:700px){
+ .hero::after{width:68vw;height:48%;right:-27vw;top:27%;opacity:.18}
+ #about::after{width:70vw;height:42%;left:-32vw;bottom:4%;opacity:.12}
+ .pricing::after{width:65vw;height:34%;right:-30vw;top:8%;opacity:.13}
+}
+
+
+/* V6 — direção visual Norte Studio */
+.hero::after{
+ background:url("assets/images/editorial-01.jpg") center/cover no-repeat !important;
+ width:min(45vw,650px)!important;height:68%!important;
+ right:-5vw!important;top:19%!important;
+ opacity:.34!important;filter:none!important;transform:rotate(3deg)!important;
+}
+#about::after{
+ background:url("assets/images/editorial-02.jpg") center/cover no-repeat !important;
+ width:min(38vw,550px)!important;height:67%!important;
+ left:-7vw!important;bottom:-8%!important;
+ opacity:.23!important;filter:brightness(.55) contrast(1.1)!important;
+}
+.pricing{
+ background:#171717!important;color:#f1f0ec!important;
+}
+.pricing::after{
+ background:url("assets/images/editorial-03.jpg") center/cover no-repeat !important;
+ width:min(34vw,500px)!important;height:55%!important;
+ right:-5vw!important;top:7%!important;
+ opacity:.16!important;filter:brightness(.55) grayscale(1)!important;
+}
+.pricing .pricing-intro,.pricing .section-head small{color:#aaa!important}
+.pricing .section-head{border-bottom-color:#3b3b3b!important}
+.pricing .plan{background:rgba(25,25,25,.72)!important;border-color:#3b3b3b!important;color:#eee!important}
+.pricing .plan.featured{background:#f0efeb!important;color:#111!important;border-color:#f0efeb!important}
+.pricing .plan ul{color:#aaa!important}
+.pricing .plan.featured ul{color:#555!important}
+.pricing .price small{color:#888!important}
+
+@media(max-width:700px){
+ .hero::after{width:76vw!important;height:42%!important;right:-34vw!important;top:30%!important;opacity:.25!important}
+ #about::after{width:78vw!important;height:38%!important;left:-37vw!important;bottom:5%!important;opacity:.16!important}
+ .pricing::after{width:78vw!important;height:30%!important;right:-38vw!important;top:5%!important;opacity:.11!important}
+}
+
+</style>
+</head>
+<body>
+<div class="noise"></div>
+<nav><a class="brand" href="#">NORTE STUDIO®</a><div class="navlinks"><a href="#work">Projetos</a><a href="#about">Sobre</a><a class="pill" href="#contact">Vamos conversar</a></div></nav>
+<main>
+<header class="hero"><div class="eyebrow reveal"><i class="dot"></i> Disponível para novos projetos</div><h1 class="reveal">Sites que fazem<br>você parar.</h1><div class="hero-bottom reveal"><p class="hero-copy">Crio experiências digitais minimalistas, rápidas e marcantes para negócios que não querem parecer iguais a todo mundo.</p><span class="scroll">Role para explorar ↓</span></div></header>
+<div class="marquee"><div class="track"><span>Web Design</span><span>•</span><span>Desenvolvimento</span><span>•</span><span>UI / UX</span><span>•</span><span>Landing Pages</span><span>•</span><span>Web Design</span><span>•</span><span>Desenvolvimento</span><span>•</span><span>UI / UX</span><span>•</span><span>Landing Pages</span><span>•</span></div></div>
+
+<section id="about"><div class="about"><div class="about-label reveal">( Norte Studio )</div><p class="reveal">Seu negócio merece um site que passe <b>confiança, personalidade e profissionalismo.</b> Criamos experiências digitais claras, rápidas e feitas para apresentar sua marca do jeito certo.</p></div>
+<div class="process reveal"><div><span>01</span><h3>Entendemos sua ideia</h3><p>Você conta o que precisa, manda referências e nós definimos a direção do projeto.</p></div><div><span>02</span><h3>Criamos sua presença</h3><p>Design, conteúdo e estrutura são construídos de forma personalizada para o seu negócio.</p></div><div><span>03</span><h3>Colocamos no ar</h3><p>Entregamos o site pronto, configurado e preparado para funcionar em computador e celular.</p></div></div></section>
+<section class="pricing" id="plans"><div class="section-head reveal"><h2>Planos</h2><small>Escolha seu ponto de partida</small></div><p class="pricing-intro reveal">Cada projeto pode ser adaptado ao que você precisa. Os valores abaixo servem como base para sites profissionais de pequeno porte.</p><div class="plans">
+<article class="plan reveal"><div class="plan-top"><span class="plan-tag">Essencial</span><span>01</span></div><h3>Site simples</h3><div class="price">R$ 349 <small>/ projeto</small></div><ul><li>1 ano de hospedagem</li><li>1 ano de domínio</li><li>1 ano de reparação técnica</li><li>Design personalizado</li><li>Redes sociais e contato</li><li>Responsivo para celular</li></ul><a class="plan-btn" href="orcamento/">Quero esse plano</a></article>
+<article class="plan featured reveal"><div class="plan-top"><span class="plan-tag">Mais completo</span><span>02</span></div><h3>Personalizado</h3><div class="price">Sob consulta</div><ul><li>Tudo do plano Essencial</li><li>Mais páginas e seções</li><li>Animações personalizadas</li><li>Formulários e integrações</li><li>Identidade visual aplicada</li><li>Recursos sob medida</li></ul><a class="plan-btn" href="orcamento/">Pedir orçamento</a></article>
+<article class="plan reveal"><div class="plan-top"><span class="plan-tag">Sob medida</span><span>03</span></div><h3>Projeto especial</h3><div class="price">Vamos conversar</div><ul><li>Estrutura definida com você</li><li>Interface exclusiva</li><li>Funcionalidades específicas</li><li>Integrações avançadas</li><li>Acompanhamento do projeto</li><li>Orçamento personalizado</li></ul><a class="plan-btn" href="orcamento/">Contar minha ideia</a></article>
+</div></section><section class="cta" id="contact"><small class="reveal">Tem uma ideia?</small><h2 class="reveal">Vamos colocar<br>sua ideia no ar.</h2><div class="cta-row reveal"><a href="https://instagram.com/SEU_USUARIO" target="_blank">Instagram ↗</a><span>© 2026 — Norte Studio</span></div></section>
+</main>
+<script>
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('on')}),{threshold:.12});document.querySelectorAll('.reveal').forEach(e=>io.observe(e));
+document.querySelectorAll('.project').forEach(p=>p.addEventListener('mousemove',e=>{const r=p.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;p.querySelector('.visual').style.transform=`scale(1.04) translate(${x*-8}px,${y*-8}px)`}));document.querySelectorAll('.project').forEach(p=>p.addEventListener('mouseleave',()=>p.querySelector('.visual').style.transform=''));
+</script>
+</body>
+</html>
