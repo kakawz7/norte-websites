@@ -107,10 +107,10 @@ body{overflow-x:hidden}
 
 /* V6 — direção visual Norte Studio */
 .hero::after{
- background:url("assets/images/editorial-01.jpg") center/cover no-repeat !important;
- width:min(45vw,650px)!important;height:68%!important;
- right:-5vw!important;top:19%!important;
- opacity:.34!important;filter:none!important;transform:rotate(3deg)!important;
+ background:url("assets/images/editorial-01-completa.jpg") center/contain no-repeat !important;
+ width:92%!important;height:76%!important;
+ left:4%!important;right:auto!important;top:16%!important;bottom:auto!important;
+ opacity:.34!important;filter:none!important;transform:none!important;
 }
 #about::after{
  background:url("assets/images/editorial-02.jpg") center/cover no-repeat !important;
@@ -136,7 +136,7 @@ body{overflow-x:hidden}
 .pricing .price small{color:#888!important}
 
 @media(max-width:700px){
- .hero::after{width:76vw!important;height:42%!important;right:-34vw!important;top:30%!important;opacity:.25!important}
+ .hero::after{width:92%!important;height:60%!important;left:4%!important;right:auto!important;top:23%!important;opacity:.25!important}
  #about::after{width:78vw!important;height:38%!important;left:-37vw!important;bottom:5%!important;opacity:.16!important}
  .pricing::after{width:78vw!important;height:30%!important;right:-38vw!important;top:5%!important;opacity:.11!important}
 }
