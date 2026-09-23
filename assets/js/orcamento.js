@@ -5,8 +5,20 @@
   const submitBtn = document.getElementById('submitBtn');
   const error = document.getElementById('submitError');
   const helpers = window.NorteForms;
+  const plans = Object.freeze({
+    essencial: 'Plano Essencial — R$ 490',
+    completo: 'Plano Completo — R$ 990'
+  });
   let current = 1, sending = false;
   helpers.install(form);
+  const selectedPlan = plans[new URLSearchParams(window.location.search).get('plano')];
+  if (selectedPlan) {
+    const budget = form.elements.namedItem('orcamento');
+    budget.add(new Option(selectedPlan, selectedPlan, true, true));
+    document.getElementById('investmentField').hidden = true;
+    document.getElementById('chosenPlanName').textContent = selectedPlan;
+    document.getElementById('chosenPlan').hidden = false;
+  }
   function show(n, initial=false) {
     current=n;
     helpers.showStep(steps,n,{bar:document.getElementById('bar'),label:document.getElementById('progressLabel'),percent:document.getElementById('progressPercent'),total:4,initial});
