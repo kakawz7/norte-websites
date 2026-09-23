@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+Disallow: /painel/
+Disallow: /supabase/
+Disallow: /api/
+Disallow: /orcamento-personalizado.html
+
+Sitemap: https://nortestudio.website/sitemap.xml
