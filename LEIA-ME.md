@@ -1,48 +1,32 @@
-# Norte Studio — pacote para revisão
+# Norte Studio
 
-Versão em modo escuro, com detalhes em laranja avermelhado. Site estático preparado para `https://nortestudio.website`. Nada foi publicado e nenhum banco, usuário, registro, política de acesso ou configuração de produção foi alterado.
+Site estático em https://nortestudio.website, reformulado em 26/09/2026 para apresentação de modelos e solicitação de reuniões.
 
-## Conteúdo
+## Publicação
 
-- `public/`: site completo, pronto para servir por HTTP/HTTPS. Contém a página inicial, os dois orçamentos, portfólio, painel existente, CSS, JavaScript, fontes, imagens, `robots.txt` e `sitemap.xml`.
-- `documentacao/REVISAO.md`: mudanças, testes realizados e limites da verificação.
-- `documentacao/previa-inicial.jpg`: captura da página inicial revisada.
-- `referencia-backend/`: SQL e instruções originais do painel, preservados apenas para referência. **Não é necessário executar esse SQL para usar o novo front-end.**
+A raiz do repositório e public/ contêm as mesmas páginas comerciais. Preserve CNAME e .nojekyll. A hospedagem deve servir 404.html para caminhos inexistentes. Não é necessário instalar dependências.
 
-## Conferir sem publicar
+## Páginas
 
-Extraia o ZIP. Em um terminal aberto nesta pasta, com Python 3 instalado, execute:
+- /: apresentação, modelos, processo e perguntas frequentes.
+- /portfolio/: três modelos demonstrativos identificados como fictícios.
+- /modelos/arquitetura/, /modelos/servicos/, /modelos/landing-page/: demonstrações navegáveis.
+- /reuniao/: solicitação de reunião, sem reserva automática de horário.
+- /privacidade/ e /termos/: transparência sobre o funcionamento.
+- /404.html: recuperação de navegação.
 
-```sh
-python3 -m http.server 8000 --directory public
-```
+Os endereços antigos de orçamento direcionam a /reuniao/. Não há tabela de preços no site comercial.
 
-Abra `http://localhost:8000/`. Para conferir em outro aparelho da mesma rede, use o IP local do computador e a porta 8000.
+## Contatos
 
-Use um servidor local: abrir o HTML diretamente com duplo clique (`file://`) não reproduz as URLs e os caminhos da publicação.
+O formulário usa a tabela existente public.orcamentos no Supabase. Preserva seus oito campos e a integração de notificação existente. O tipo de pedido e a disponibilidade estão na descrição. Nunca coloque credenciais privadas no JavaScript.
 
-**Os formulários do pacote final mantêm a conexão com o Supabase real. Clicar em enviar poderá criar um pedido no banco existente.** Os testes descritos no relatório usaram um servidor separado com respostas simuladas; esse servidor de testes não está no pacote. É possível revisar aparência, navegação e etapas sem enviar um pedido.
+## Ativos
 
-## Publicar quando aprovado
+Fontes Manrope locais, licença em assets/fonts/OFL.txt. Bússola existente preservada. forma-interior.webp é uma imagem conceitual gerada por IA para o modelo fictício Forma Arquitetura. Prompt: interior contemporâneo brasileiro com materiais naturais, sofá de linho, mesa de travertino, jardim e luz quente; sem pessoas, texto ou marcas. Gerada com a ferramenta integrada de imagens.
 
-Publique somente **o conteúdo de `public/`** na raiz do domínio. O arquivo `index.html` deve ficar na raiz pública, junto de `assets/`, `orcamento/` e demais pastas. Não publique `documentacao/` nem `referencia-backend/`.
+## Verificação
 
-Não há instalação, compilação, Node.js, pacote npm ou migração de banco necessários. O servidor deve servir `index.html` como índice das pastas e manter HTTPS. O `CNAME` do domínio e o arquivo `.nojekyll` foram preservados para compatibilidade com a hospedagem atual.
+Links e recursos locais verificados; responsividade e formulário testados no navegador com servidor de teste isolado. A inserção real no banco foi verificada em transação revertida, sem persistência nem disparo de notificação. Visitantes não podem ler os contatos.
 
-As configurações e permissões existentes do Supabase continuam necessárias. A revisão não mudou autenticação, políticas, tabelas, funções ou DNS. A entrega deste ZIP não executa deploy.
-
-## Onde editar
-
-| Conteúdo | Arquivo |
-| --- | --- |
-| Página inicial e valores R$ 490 / R$ 990 | `public/index.html` |
-| Visual compartilhado e animações | `public/assets/css/site.css` |
-| Apresentação dos formulários | `public/assets/css/forms.css` |
-| Navegação mobile e revelação dos textos | `public/assets/js/site.js` |
-| Conexão pública e validação comum | `public/assets/js/form-shared.js` |
-| Etapas do orçamento padrão | `public/assets/js/orcamento.js` |
-| Etapas do orçamento personalizado | `public/assets/js/orcamento-personalizado.js` |
-
-Os campos e opções originais dos formulários foram mantidos, incluindo suas faixas de investimento. Essas opções não calculam automaticamente o valor de um plano.
-
-As fontes Manrope são servidas localmente; a licença está em `public/assets/fonts/OFL.txt`.
+A função de notificação recebeu search_path fixo em migração de segurança. O painel administrativo legado depende de configuração própria de acesso e não faz parte do caminho comercial.
