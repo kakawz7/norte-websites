@@ -1,2 +1,15 @@
 'use strict';
-(()=>{const button=document.querySelector('.menu'),nav=document.getElementById('navigation');if(!button||!nav)return;const mobile=matchMedia('(max-width:760px)');button.hidden=false;function set(open){button.setAttribute('aria-expanded',String(open));nav.hidden=mobile.matches&&!open}function sync(){set(false)}sync();mobile.addEventListener('change',sync);button.addEventListener('click',()=>set(button.getAttribute('aria-expanded')!=='true'));nav.addEventListener('click',event=>{if(event.target.closest('a')&&mobile.matches)set(false)});document.addEventListener('keydown',event=>{if(event.key==='Escape'&&button.getAttribute('aria-expanded')==='true'){set(false);button.focus()}})})();
+// Menu do celular: o CSS mostra a navegação quando aria-expanded="true".
+(() => {
+  const button = document.querySelector('.menu');
+  const nav = document.getElementById('navigation');
+  if (!button || !nav) return;
+  const isOpen = () => button.getAttribute('aria-expanded') === 'true';
+  const set = open => button.setAttribute('aria-expanded', String(open));
+  button.addEventListener('click', () => set(!isOpen()));
+  nav.addEventListener('click', event => { if (event.target.closest('a')) set(false); });
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape' && isOpen()) { set(false); button.focus(); }
+  });
+  matchMedia('(min-width: 761px)').addEventListener('change', () => set(false));
+})();
